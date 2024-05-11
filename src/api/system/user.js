@@ -1,6 +1,19 @@
 import request from '@/utils/request'
 import { parseStrEmpty } from "@/utils/ruoyi";
 
+
+
+
+export function getUserInfo(loginId) {
+  return request({
+    url: '/user/info',
+    method: 'get',
+    params: {
+      loginId
+    }
+  })
+}
+
 // 查询用户列表
 export function listUser(query) {
   return request({

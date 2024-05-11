@@ -40,6 +40,16 @@ export const constantRoutes = [
   {
     path: '/login',
     component: () => import('@/views/login'),
+    hidden: true,
+  },
+  {
+    path: '/login/oauth2/code',
+    component: () => import('@/views/redirect/code'),
+    hidden: true
+  },
+  {
+    path: '/login/wx',
+    component: () => import('@/views/redirect/wx'),
     hidden: true
   },
   {
@@ -160,6 +170,7 @@ export const dynamicRoutes = [
   }
 ]
 
+// import.meta.env.VITE_APP_ENV === 'production' ? 'qjyy-demo' : undefined
 const router = createRouter({
   history: createWebHistory(),
   routes: constantRoutes,

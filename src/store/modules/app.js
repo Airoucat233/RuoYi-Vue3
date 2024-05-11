@@ -1,3 +1,4 @@
+import { fa } from 'element-plus/es/locales.mjs';
 import Cookies from 'js-cookie'
 
 const useAppStore = defineStore(
@@ -10,7 +11,8 @@ const useAppStore = defineStore(
         hide: false
       },
       device: 'desktop',
-      size: Cookies.get('size') || 'default'
+      size: Cookies.get('size') || 'default',
+      isRefresh: false //页面是否刷新
     }),
     actions: {
       toggleSideBar(withoutAnimation) {
@@ -39,7 +41,11 @@ const useAppStore = defineStore(
       },
       toggleSideBarHide(status) {
         this.sidebar.hide = status
-      }
+      },
+      //切换刷新状态
+      toggleRefreshStatus(status) {
+        this.isRefresh = status
+      },
     }
   })
 
